@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  build-and-deploy:
+  lint-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,20 +26,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # 4️⃣ Lint and Prettier check
-      - name: Lint & Format check
+      # 4️⃣ Lint & Prettier check
+      - name: Lint & Format
         run: |
           npm run lint
           npm run format -- --check
 
-      # 5️⃣ Optional: Run tests (if any)
+      # 5️⃣ Optional: Run tests
       # - name: Run tests
       #   run: npm test
-
-      # 6️⃣ Deploy to Railway
-      - name: Deploy to Railway
-        uses: railwayapp/railway-action@v2
-        with:
-          railwayToken: ${{ secrets.RAILWAY_API_KEY }}
-          projectId: <your-railway-project-id>
-          serviceId: <your-service-id>
