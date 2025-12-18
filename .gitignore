@@ -26,9 +26,6 @@ Thumbs.db
 *.sublime-project
 
 # NPM / Yarn
-package-lock.json
-yarn.lock
-
 # Optional: Coverage (if using tests)
 coverage/
 
